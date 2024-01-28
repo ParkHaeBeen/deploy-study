@@ -46,7 +46,7 @@ pipeline {
                             sleep 10
                         done
         
-                        ssh -o StrictHostKeyChecking=no ubuntu@${BACKEND_IP} "echo 'set \\\$service_url http://${BACKEND_IP}:${target_port};' | sudo tee /etc/nginx/conf.d/service-url.inc && sudo service nginx reload"
+                        ssh -o StrictHostKeyChecking=no ubuntu@${BACKEND_IP} "echo 'set \\\$service_url http://${BACKEND_IP}:${target_port};' | sudo tee /etc/nginx/conf.d/service_url.inc && sudo service nginx reload"
                         echo "Switch the reverse proxy direction of nginx to ${target_port} 🔄"
         
                         if [ "${target_port}" == "${BLUE_PORT}" ]
