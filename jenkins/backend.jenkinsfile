@@ -51,9 +51,9 @@ pipeline {
         
                         if [ "${target_port}" == "${BLUE_PORT}" ]
                         then
-                            ssh ubuntu@${target_port} "fuser -s -k ${GREEN_PORT}/tcp"
+                            ssh ubuntu@${BACKEND_IP} "fuser -s -k ${GREEN_PORT}/tcp"
                         else
-                            ssh ubuntu@${target_port} "fuser -s -k ${BLUE_PORT}/tcp"
+                            ssh ubuntu@${BACKEND_IP} "fuser -s -k ${BLUE_PORT}/tcp"
                         fi
                         echo "Kill the process on the opposite server."
                         '''
